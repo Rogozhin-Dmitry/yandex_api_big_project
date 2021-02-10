@@ -60,7 +60,7 @@
      </rect>
     </property>
     <property name="maximum">
-     <number>100</number>
+     <number>12</number>
     </property>
    </widget>
    <widget class="QLabel" name="image">

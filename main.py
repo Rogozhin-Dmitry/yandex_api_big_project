@@ -34,8 +34,7 @@ class MyWidget(QMainWindow):
             else:
                 style = 'sat,skl'
             self.current_coords = [self.lineEdit.text().split(', ')[1], self.lineEdit.text().split(', ')[0]]
-            self.current_size = str(0.01 * 2 ** self.spinBox.value())
-            print(self.current_size)
+            self.current_size = str(0.01 * 2 ** (12 - self.spinBox.value()))
             map_params = {
                 "ll": ",".join(self.current_coords),
                 # "z": self.current_size,
