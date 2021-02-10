@@ -5,6 +5,12 @@ from PIL.ImageQt import ImageQt
 from PyQt5 import uic
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
+from sys import argv, exit
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
+from PIL import Image
+from PIL.ImageQt import ImageQt
 
 
 class MyWidget(QMainWindow):
@@ -37,6 +43,16 @@ class MyWidget(QMainWindow):
         except Exception as e:
             print(e)
             self.error_label.setText('Извините вы ввели координаты неправильно')
+
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_PageUp:
+            self.spinBox.setValue(self.spinBox.value() - 1)
+            self.change_map()
+            self.update()
+        elif event.key() == Qt.Key_PageDown:
+            self.spinBox.setValue(self.spinBox.value() + 1)
+            self.change_map()
+            self.update()
 
 
 if __name__ == '__main__':
