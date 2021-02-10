@@ -26,7 +26,7 @@ class MyWidget(QMainWindow):
 
     def change_map(self):
         try:
-            self.current_coords = [self.lineEdit.text().split(', ')[0], self.lineEdit.text().split(', ')[0]]
+            self.current_coords = [self.lineEdit.text().split(', ')[0], self.lineEdit.text().split(', ')[1]]
             self.current_size = str(self.spinBox.value())
             map_params = {
                 "ll": ",".join(self.current_coords),
