@@ -26,12 +26,18 @@ class MyWidget(QMainWindow):
 
     def change_map(self):
         try:
+            if self.comboBox.currentText() == 'схема':
+                style = 'map'
+            elif self.comboBox.currentText() == 'спутник':
+                style = 'sat'
+            else:
+                style = 'sat,skl'
             self.current_coords = [self.lineEdit.text().split(', ')[1], self.lineEdit.text().split(', ')[0]]
             self.current_size = str(self.spinBox.value())
             map_params = {
                 "ll": ",".join(self.current_coords),
                 "z": self.current_size,
-                "l": "map",
+                "l": style,
             }
             response = requests.get(self.map_api_server, params=map_params)
             with open("map.png", "wb") as file:
