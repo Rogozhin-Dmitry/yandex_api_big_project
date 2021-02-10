@@ -21,8 +21,8 @@ class MyWidget(QMainWindow):
         self.app = app
         self.pushButton.clicked.connect(self.change_map)
         self.geocoder_api_server = "http://geocode-maps.yandex.ru/1.x/"
-        self.current_coords = [0, 0]
-        self.current_size = 0
+        self.current_coords = ['0', '0']
+        self.current_size = '0'
         self.map_api_server = "http://static-maps.yandex.ru/1.x/"
 
     def change_map(self):
@@ -53,12 +53,34 @@ class MyWidget(QMainWindow):
             self.error_label.setText('Извините вы ввели координаты неправильно')
 
     def keyPressEvent(self, event):
+        delta = float(self.current_size)
         if event.key() == Qt.Key_PageUp:
             self.spinBox.setValue(self.spinBox.value() - 1)
             self.change_map()
             self.update()
         elif event.key() == Qt.Key_PageDown:
             self.spinBox.setValue(self.spinBox.value() + 1)
+            self.change_map()
+            self.update()
+        elif event.key() == Qt.Key_Left or event.key() == Qt.Key_A:
+            print('yeah')
+            self.current_coords[0] = str(float(self.current_coords[0]) - delta)
+            self.lineEdit.setText(', '.join([self.current_coords[1], self.current_coords[0]]))
+            self.change_map()
+            self.update()
+        elif event.key() == Qt.Key_Right or event.key() == Qt.Key_D:
+            self.current_coords[0] = str(float(self.current_coords[0]) + delta)
+            self.lineEdit.setText(', '.join([self.current_coords[1], self.current_coords[0]]))
+            self.change_map()
+            self.update()
+        elif event.key() == Qt.Key_Up or event.key() == Qt.Key_W:
+            self.current_coords[1] = str(float(self.current_coords[1]) + delta)
+            self.lineEdit.setText(', '.join([self.current_coords[1], self.current_coords[0]]))
+            self.change_map()
+            self.update()
+        elif event.key() == Qt.Key_Down or event.key() == Qt.Key_S:
+            self.current_coords[1] = str(float(self.current_coords[1]) - delta)
+            self.lineEdit.setText(', '.join([self.current_coords[1], self.current_coords[0]]))
             self.change_map()
             self.update()
 
