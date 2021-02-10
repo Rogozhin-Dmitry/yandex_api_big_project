@@ -11,6 +11,7 @@ from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
 from PIL import Image
 from PIL.ImageQt import ImageQt
+import os
 
 
 class MyWidget(QMainWindow):
@@ -33,10 +34,12 @@ class MyWidget(QMainWindow):
             else:
                 style = 'sat,skl'
             self.current_coords = [self.lineEdit.text().split(', ')[1], self.lineEdit.text().split(', ')[0]]
-            self.current_size = str(self.spinBox.value())
+            self.current_size = str(0.01 * 2 ** self.spinBox.value())
+            print(self.current_size)
             map_params = {
                 "ll": ",".join(self.current_coords),
-                "z": self.current_size,
+                # "z": self.current_size,
+                "spn": ",".join([self.current_size, self.current_size]),
                 "l": style,
             }
             response = requests.get(self.map_api_server, params=map_params)
@@ -67,3 +70,4 @@ if __name__ == '__main__':
     ex.show()
 
     sys.exit(app.exec())
+    os.remove("map.png")
