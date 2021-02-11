@@ -66,22 +66,26 @@ class Example(QMainWindow):
         elif event.key() == Qt.Key_D:
             self.cords[0] += self.spn[0] * 2
             if self.set_image():
-                self.cords[0] -= self.spn[0] * 2
+                self.cords[0] = 85.0
+                # self.cords[0] -= self.spn[0] * 2
             self.update()
         elif event.key() == Qt.Key_A:
             self.cords[0] -= self.spn[0] * 2
             if self.set_image():
-                self.cords[0] += self.spn[0] * 2
+                self.cords[0] = -85.0
+                # self.cords[0] += self.spn[0] * 2
             self.update()
         elif event.key() == Qt.Key_W:
             self.cords[1] += self.spn[1] * 2
             if self.set_image():
-                self.cords[1] -= self.spn[1] * 2
+                self.cords[1] = 85.0
+                # self.cords[1] -= self.spn[1] * 2
             self.update()
         elif event.key() == Qt.Key_S:
             self.cords[1] -= self.spn[1] * 2
             if self.set_image():
-                self.cords[1] += self.spn[1] * 2
+                self.cords[1] = -85.0
+                # self.cords[1] += self.spn[1] * 2
             self.update()
         self.set_image()
 
