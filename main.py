@@ -18,6 +18,7 @@ class Example(QMainWindow):
         self.standard_spn = (0.006, 0.0045)
         self.spn = (0.006, 0.0045)
         self.cords = [37.530887, 55.703118]
+        self.style = 'map'
         self.zoom = 0
 
         self.map_file = ''
@@ -26,6 +27,7 @@ class Example(QMainWindow):
 
     def new_param(self):
         self.zoom = self.Zoom.value() - 3
+        self.style = self.comboBox.currentText()
         try:
             self.cords[0] = round(float(self.Longitude.text()), 6)
             self.cords[1] = round(float(self.Latitude.text()), 6)
@@ -38,7 +40,7 @@ class Example(QMainWindow):
     def set_image(self):
         self.spn = [i * 2 ** self.zoom for i in self.standard_spn]
         response = requests.get(self.map_api_server +
-                                f"?ll={self.cords[0]},{self.cords[1]}&spn={self.spn[0]},{self.spn[1]}&l=map")
+                                f"?ll={self.cords[0]},{self.cords[1]}&spn={self.spn[0]},{self.spn[1]}&l={self.style}")
 
         if not response:
             # print(f"Ошибка выполнения запроса:\nHttp статус:{response.status_code}, ({response.reason})")

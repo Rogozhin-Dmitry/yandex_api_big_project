@@ -165,7 +165,7 @@ up-arrow {width: 7px;height: 7px;};</string>
           </item>
           <item>
            <property name="text">
-            <string> sat</string>
+            <string>sat</string>
            </property>
           </item>
          </widget>
