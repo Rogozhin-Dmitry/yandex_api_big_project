@@ -222,12 +222,12 @@ min-width: 10em;
 </string>
           </property>
           <property name="text">
-           <string>Adress</string>
+           <string>Object</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="Longitude_2">
+         <widget class="QLineEdit" name="Object">
           <property name="focusPolicy">
            <enum>Qt::ClickFocus</enum>
           </property>
@@ -270,7 +270,7 @@ min-width: 10em;</string>
         <item>
          <widget class="QRadioButton" name="radioButton">
           <property name="text">
-           <string>Search by address</string>
+           <string>Search object</string>
           </property>
          </widget>
         </item>

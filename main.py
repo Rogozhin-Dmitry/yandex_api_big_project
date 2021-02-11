@@ -20,6 +20,7 @@ class Example(QMainWindow):
         self.cords = [37.530887, 55.703118]
         self.style = 'map'
         self.zoom = 0
+        self.current_point = None
 
         self.map_file = ''
         self.pix_map = ''
@@ -29,8 +30,23 @@ class Example(QMainWindow):
         self.zoom = self.Zoom.value() - 3
         self.style = self.comboBox.currentText()
         try:
-            self.cords[0] = round(float(self.Longitude.text()), 6)
-            self.cords[1] = round(float(self.Latitude.text()), 6)
+            if self.radioButton.isChecked():
+                response = requests.get(self.geo_coder_api_server +
+                                        f"?geocode={self.Object.text()}&format=json&"
+                                        f"apikey=40d1649f-0493-4b70-98ba-98533de7710b")
+                json_response = response.json()
+                toponym = json_response["response"]["GeoObjectCollection"]["featureMember"][0]["GeoObject"]
+                toponym_coodrinates = toponym["Point"]["pos"]
+                toponym_longitude, toponym_lattitude = toponym_coodrinates.split(" ")
+                self.current_point = [float(toponym_longitude), float(toponym_lattitude)]
+                self.cords[0] = round(float(toponym_longitude), 6)
+                self.cords[1] = round(float(toponym_lattitude), 6)
+                self.Longitude.setText(str(round(float(toponym_longitude), 6)))
+                self.Latitude.setText(str(round(float(toponym_lattitude), 6)))
+            else:
+                self.current_point = None
+                self.cords[0] = round(float(self.Longitude.text()), 6)
+                self.cords[1] = round(float(self.Latitude.text()), 6)
         except Exception as e:
             print('ошибка при вводе параметров', e)
             QMessageBox.critical(self, "Ошибка ", "Некорректное значение",
@@ -39,8 +55,15 @@ class Example(QMainWindow):
 
     def set_image(self):
         self.spn = [i * 2 ** self.zoom for i in self.standard_spn]
-        response = requests.get(self.map_api_server +
-                                f"?ll={self.cords[0]},{self.cords[1]}&spn={self.spn[0]},{self.spn[1]}&l={self.style}")
+        if self.current_point:
+            response = requests.get(self.map_api_server +
+                                    f"?ll={self.cords[0]},{self.cords[1]}&spn={self.spn[0]},"
+                                    f"{self.spn[1]}&l={self.style}&pt={self.current_point[0]},"
+                                    f"{self.current_point[1]},pmrdm")
+        else:
+            response = requests.get(self.map_api_server +
+                                    f"?ll={self.cords[0]},{self.cords[1]}&"
+                                    f"spn={self.spn[0]},{self.spn[1]}&l={self.style}")
 
         if not response:
             # print(f"Ошибка выполнения запроса:\nHttp статус:{response.status_code}, ({response.reason})")
