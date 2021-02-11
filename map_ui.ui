@@ -270,7 +270,7 @@ min-width: 10em;</string>
         <item>
          <widget class="QRadioButton" name="radioButton">
           <property name="text">
-           <string>Adress/Cords</string>
+           <string>Search by address</string>
           </property>
          </widget>
         </item>
