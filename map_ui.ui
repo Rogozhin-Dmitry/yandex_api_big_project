@@ -250,27 +250,39 @@ min-width: 10em;</string>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
-         <widget class="QLabel" name="label_7">
-          <property name="font">
-           <font>
-            <family>Segoe UI</family>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(85, 255, 255);
-
-</string>
-          </property>
+         <widget class="QRadioButton" name="radioButton">
           <property name="text">
-           <string/>
+           <string>Search object</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="radioButton">
+         <widget class="QPushButton" name="delete_2">
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>-1</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::ClickFocus</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(57, 173, 173);
+padding: 6px;
+border-style: outset;
+border-width: 0px;
+border-radius: 10px;
+border-color: beige;
+font: 14px;
+min-width: 10em;
+</string>
+          </property>
           <property name="text">
-           <string>Search object</string>
+           <string>Delete flag</string>
           </property>
          </widget>
         </item>

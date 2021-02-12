@@ -12,6 +12,7 @@ class Example(QMainWindow):
         super().__init__()
         uic.loadUi('map_ui.ui', self)
         self.Get_Image.clicked.connect(self.new_param)
+        self.delete_2.clicked.connect(self.param)
         self.geo_coder_api_server = "http://geocode-maps.yandex.ru/1.x/"
         self.map_api_server = "http://static-maps.yandex.ru/1.x/"
 
@@ -26,25 +27,30 @@ class Example(QMainWindow):
         self.pix_map = ''
         self.set_image()
 
+    def param(self):
+        self.current_point = None
+        self.set_image()
+
     def new_param(self):
         self.zoom = self.Zoom.value() - 3
         self.style = self.comboBox.currentText()
         try:
             if self.radioButton.isChecked():
-                response = requests.get(self.geo_coder_api_server +
-                                        f"?geocode={self.Object.text()}&format=json&"
-                                        f"apikey=40d1649f-0493-4b70-98ba-98533de7710b")
-                json_response = response.json()
-                toponym = json_response["response"]["GeoObjectCollection"]["featureMember"][0]["GeoObject"]
-                toponym_coodrinates = toponym["Point"]["pos"]
-                toponym_longitude, toponym_lattitude = toponym_coodrinates.split(" ")
-                self.current_point = [float(toponym_longitude), float(toponym_lattitude)]
-                self.cords[0] = round(float(toponym_longitude), 6)
-                self.cords[1] = round(float(toponym_lattitude), 6)
-                self.Longitude.setText(str(round(float(toponym_longitude), 6)))
-                self.Latitude.setText(str(round(float(toponym_lattitude), 6)))
+                response = requests.get(f"{self.geo_coder_api_server}?geocode={self.Object.text()}&format=json&" +
+                                        "apikey=40d1649f-0493-4b70-98ba-98533de7710b")
+
+                if not response:
+                    print(f"Ошибка выполнения запроса:\nHttp статус:{response.status_code}, ({response.reason})")
+                else:
+                    longitude, latitude = \
+                        response.json()["response"]["GeoObjectCollection"]["featureMember" +
+                                                                           ''][0]["GeoObject"]["Point"]["pos"].split()
+                    self.current_point = [float(longitude), float(latitude)]
+                    self.cords[0] = round(float(longitude), 6)
+                    self.cords[1] = round(float(latitude), 6)
+                    self.Longitude.setText(str(round(float(longitude), 6)))
+                    self.Latitude.setText(str(round(float(latitude), 6)))
             else:
-                self.current_point = None
                 self.cords[0] = round(float(self.Longitude.text()), 6)
                 self.cords[1] = round(float(self.Latitude.text()), 6)
         except Exception as e:
@@ -55,18 +61,12 @@ class Example(QMainWindow):
 
     def set_image(self):
         self.spn = [i * 2 ** self.zoom for i in self.standard_spn]
+        url = f"{self.map_api_server}?ll={self.cords[0]},{self.cords[1]}&spn={self.spn[0]},{self.spn[1]}&l={self.style}"
         if self.current_point:
-            response = requests.get(self.map_api_server +
-                                    f"?ll={self.cords[0]},{self.cords[1]}&spn={self.spn[0]},"
-                                    f"{self.spn[1]}&l={self.style}&pt={self.current_point[0]},"
-                                    f"{self.current_point[1]},pmrdm")
-        else:
-            response = requests.get(self.map_api_server +
-                                    f"?ll={self.cords[0]},{self.cords[1]}&"
-                                    f"spn={self.spn[0]},{self.spn[1]}&l={self.style}")
-
+            url += f"&pt={self.current_point[0]},{self.current_point[1]},pmrdm"
+        response = requests.get(url)
         if not response:
-            # print(f"Ошибка выполнения запроса:\nHttp статус:{response.status_code}, ({response.reason})")
+            print(f"Ошибка выполнения запроса:\nHttp статус:{response.status_code}, ({response.reason})")
             return 'error'
         else:
             self.map_file = "map.png"
@@ -92,25 +92,21 @@ class Example(QMainWindow):
             self.cords[0] += self.spn[0] * 2
             if self.set_image():
                 self.cords[0] = 85.0
-                # self.cords[0] -= self.spn[0] * 2
             self.update()
         elif event.key() == Qt.Key_A:
             self.cords[0] -= self.spn[0] * 2
             if self.set_image():
                 self.cords[0] = -85.0
-                # self.cords[0] += self.spn[0] * 2
             self.update()
         elif event.key() == Qt.Key_W:
             self.cords[1] += self.spn[1] * 2
             if self.set_image():
                 self.cords[1] = 85.0
-                # self.cords[1] -= self.spn[1] * 2
             self.update()
         elif event.key() == Qt.Key_S:
             self.cords[1] -= self.spn[1] * 2
             if self.set_image():
                 self.cords[1] = -85.0
-                # self.cords[1] += self.spn[1] * 2
             self.update()
         self.set_image()
 
