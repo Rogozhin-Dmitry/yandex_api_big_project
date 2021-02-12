@@ -13,6 +13,7 @@ class Example(QMainWindow):
         uic.loadUi('map_ui.ui', self)
         self.Get_Image.clicked.connect(self.new_param)
         self.delete_2.clicked.connect(self.param)
+        self.index.stateChanged.connect(self.new_param)
         self.geo_coder_api_server = "http://geocode-maps.yandex.ru/1.x/"
         self.map_api_server = "http://static-maps.yandex.ru/1.x/"
 
@@ -29,6 +30,8 @@ class Example(QMainWindow):
 
     def param(self):
         self.current_point = None
+        self.Object.setText('')
+        self.address.setText('Full address:')
         self.set_image()
 
     def new_param(self):
@@ -42,9 +45,18 @@ class Example(QMainWindow):
                 if not response:
                     print(f"Ошибка выполнения запроса:\nHttp статус:{response.status_code}, ({response.reason})")
                 else:
-                    longitude, latitude = \
-                        response.json()["response"]["GeoObjectCollection"]["featureMember" +
-                                                                           ''][0]["GeoObject"]["Point"]["pos"].split()
+                    obj = response.json()["response"]["GeoObjectCollection"]["featureMember"][0]["GeoObject"]
+                    self.address.setText(f'Full address: {obj["metaDataProperty"]["GeocoderMetaData"]["text"]}')
+                    if self.index.isChecked():
+                        try:
+                            self.address.setText(self.address.text() + ' ' +
+                                                 obj["metaDataProperty"]["GeocoderMetaData"]['Address']['postal_code'])
+                        except Exception as e:
+                            self.index.setCheckState(False)
+                            print('ошибка при вводе параметров', e)
+                            QMessageBox.critical(self, "Ошибка ", "У этого адреса нет индекса",
+                                                 QMessageBox.Ok)
+                    longitude, latitude = obj["Point"]["pos"].split()
                     self.current_point = [float(longitude), float(latitude)]
                     self.cords[0] = round(float(longitude), 6)
                     self.cords[1] = round(float(latitude), 6)
@@ -53,6 +65,8 @@ class Example(QMainWindow):
             else:
                 self.cords[0] = round(float(self.Longitude.text()), 6)
                 self.cords[1] = round(float(self.Latitude.text()), 6)
+                self.Object.setText('')
+                self.address.setText('Full address:')
         except Exception as e:
             print('ошибка при вводе параметров', e)
             QMessageBox.critical(self, "Ошибка ", "Некорректное значение",
