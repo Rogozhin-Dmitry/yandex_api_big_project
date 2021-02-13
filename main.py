@@ -124,6 +124,25 @@ class Example(QMainWindow):
             self.update()
         self.set_image()
 
+    def find_object_from_click(self, degree_x, degree_y):
+        response = requests.get(f"{self.geo_coder_api_server}?geocode={degree_x},{degree_y}&format=json&" +
+                                "apikey=40d1649f-0493-4b70-98ba-98533de7710b")
+        json_response = response.json()
+        toponym = json_response["response"]["GeoObjectCollection"]["featureMember"][0]["GeoObject"]
+        name = toponym['metaDataProperty']['GeocoderMetaData']['Address']['Components'][-1]['name']
+        self.Object.setText(name)
+        self.current_point = [degree_x, degree_y]
+        self.address.setText(f'Full address: {toponym["metaDataProperty"]["GeocoderMetaData"]["text"]}')
+        if self.index.isChecked():
+            try:
+                self.address.setText(self.address.text() + ' ' +
+                                     toponym["metaDataProperty"]["GeocoderMetaData"]['Address']['postal_code'])
+            except Exception as e:
+                self.index.setCheckState(False)
+                print('ошибка при вводе параметров', e)
+                QMessageBox.critical(self, "Ошибка ", "У этого адреса нет индекса", QMessageBox.Ok)
+        self.set_image()
+
 
 def except_hook(cls, exception, traceback):
     sys.__excepthook__(cls, exception, traceback)
