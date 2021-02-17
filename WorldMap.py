@@ -13,4 +13,4 @@ class WorldMap(QLabel):
         degree_for_pixel_y = self.parent_form.spn[1] / self.size().height()
         degree_x = degree_for_pixel_x * x_coord
         degree_y = degree_for_pixel_y * y_coord
-        self.parent_form.find_object_from_click(degree_x, degree_y)
+        # self.parent_form.find_object_from_click(degree_x, degree_y)
