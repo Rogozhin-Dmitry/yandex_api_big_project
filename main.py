@@ -5,6 +5,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 import os
+from WorldMap import *
 
 
 class Example(QMainWindow):
@@ -23,6 +24,9 @@ class Example(QMainWindow):
         self.style = 'map'
         self.zoom = 0
         self.current_point = None
+
+        self.map = WorldMap(self)
+        self.New_Layout.addWidget(self.map)
 
         self.map_file = ''
         self.pix_map = ''

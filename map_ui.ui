@@ -18,123 +18,125 @@
 border-width: 0px;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_8">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QVBoxLayout" name="New_Layout">
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_6">
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <layout class="QVBoxLayout" name="verticalLayout_6">
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_3">
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
                 <item>
-                 <widget class="QLabel" name="label_2">
-                  <property name="font">
-                   <font>
-                    <family>Segoe UI</family>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">color: rgb(85, 255, 255);
+                 <layout class="QVBoxLayout" name="verticalLayout_4">
+                  <item>
+                   <widget class="QLabel" name="label_2">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(85, 255, 255);
 
 </string>
-                  </property>
-                  <property name="text">
-                   <string>Longitude</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="Longitude">
-                  <property name="focusPolicy">
-                   <enum>Qt::ClickFocus</enum>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: rgb(57, 173, 173);
+                    </property>
+                    <property name="text">
+                     <string>Longitude</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="Longitude">
+                    <property name="focusPolicy">
+                     <enum>Qt::ClickFocus</enum>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(57, 173, 173);
 border-style: outset;
 border-radius: 10px;
 border-color: beige;
 font: 14px;
 padding: 6px;
 min-width: 10em;</string>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_4">
                 <item>
-                 <widget class="QLabel" name="label_3">
-                  <property name="font">
-                   <font>
-                    <family>Segoe UI</family>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">color: rgb(85, 255, 255);
+                 <layout class="QVBoxLayout" name="verticalLayout_5">
+                  <item>
+                   <widget class="QLabel" name="label_3">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(85, 255, 255);
 
 </string>
-                  </property>
-                  <property name="text">
-                   <string>Latitude</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="Latitude">
-                  <property name="focusPolicy">
-                   <enum>Qt::ClickFocus</enum>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: rgb(57, 173, 173);
+                    </property>
+                    <property name="text">
+                     <string>Latitude</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="Latitude">
+                    <property name="focusPolicy">
+                     <enum>Qt::ClickFocus</enum>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(57, 173, 173);
 border-style: outset;
 border-radius: 10px;
 border-color: beige;
 font: 14px;
 min-width: 10em;
 padding: 6px;</string>
-                  </property>
-                 </widget>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_5">
                 <item>
-                 <widget class="QLabel" name="label_4">
-                  <property name="font">
-                   <font>
-                    <family>Segoe UI</family>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">color: rgb(85, 255, 255);
+                 <layout class="QVBoxLayout" name="verticalLayout_7">
+                  <item>
+                   <widget class="QLabel" name="label_4">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(85, 255, 255);
 
 </string>
-                  </property>
-                  <property name="text">
-                   <string>Zoom</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QSpinBox" name="Zoom">
-                  <property name="focusPolicy">
-                   <enum>Qt::ClickFocus</enum>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: rgb(57, 173, 173);
+                    </property>
+                    <property name="text">
+                     <string>Zoom</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="Zoom">
+                    <property name="focusPolicy">
+                     <enum>Qt::ClickFocus</enum>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(57, 173, 173);
 padding: 6px;
 border-style: outset;
 border-width: 0px;
@@ -143,115 +145,115 @@ border-color: beige;
 font: 14px;
 min-width: 10em;
 up-arrow {width: 7px;height: 7px;};</string>
-                  </property>
-                  <property name="minimum">
-                   <number>0</number>
-                  </property>
-                  <property name="maximum">
-                   <number>15</number>
-                  </property>
-                  <property name="value">
-                   <number>3</number>
-                  </property>
-                 </widget>
+                    </property>
+                    <property name="minimum">
+                     <number>0</number>
+                    </property>
+                    <property name="maximum">
+                     <number>15</number>
+                    </property>
+                    <property name="value">
+                     <number>3</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                </layout>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_6">
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(85, 255, 255);
+
+</string>
+                </property>
+                <property name="text">
+                 <string>Object</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="Object">
+                <property name="focusPolicy">
+                 <enum>Qt::ClickFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(57, 173, 173);
+border-style: outset;
+border-radius: 10px;
+border-color: beige;
+font: 14px;
+padding: 6px;
+min-width: 10em;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="address">
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(85, 255, 255);
+
+</string>
+                </property>
+                <property name="text">
+                 <string>Full address:</string>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
             <item>
-             <widget class="QLabel" name="label_6">
-              <property name="font">
-               <font>
-                <family>Segoe UI</family>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(85, 255, 255);
-
-</string>
-              </property>
-              <property name="text">
-               <string>Object</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="Object">
-              <property name="focusPolicy">
-               <enum>Qt::ClickFocus</enum>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(57, 173, 173);
-border-style: outset;
-border-radius: 10px;
-border-color: beige;
-font: 14px;
-padding: 6px;
-min-width: 10em;</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="address">
-              <property name="font">
-               <font>
-                <family>Segoe UI</family>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(85, 255, 255);
-
-</string>
-              </property>
-              <property name="text">
-               <string>Full address:</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout">
-            <item>
-             <widget class="QComboBox" name="comboBox">
+             <layout class="QVBoxLayout" name="verticalLayout_8">
               <item>
-               <property name="text">
-                <string>map</string>
-               </property>
+               <widget class="QComboBox" name="comboBox">
+                <item>
+                 <property name="text">
+                  <string>map</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>sat,skl</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>sat</string>
+                 </property>
+                </item>
+               </widget>
               </item>
               <item>
-               <property name="text">
-                <string>sat,skl</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>sat</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="Get_Image">
-              <property name="font">
-               <font>
-                <pointsize>-1</pointsize>
-                <weight>50</weight>
-                <italic>false</italic>
-                <bold>false</bold>
-               </font>
-              </property>
-              <property name="focusPolicy">
-               <enum>Qt::ClickFocus</enum>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(57, 173, 173);
+               <widget class="QPushButton" name="Get_Image">
+                <property name="font">
+                 <font>
+                  <pointsize>-1</pointsize>
+                  <weight>50</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::ClickFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(57, 173, 173);
 padding: 6px;
 border-style: outset;
 border-width: 0px;
@@ -260,16 +262,16 @@ border-color: beige;
 font: 14px;
 min-width: 10em;
 </string>
-              </property>
-              <property name="text">
-               <string>Get Image</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QCheckBox" name="radioButton">
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(57, 173, 173);
+                </property>
+                <property name="text">
+                 <string>Get Image</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="radioButton">
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(57, 173, 173);
 padding: 6px;
 border-style: outset;
 border-width: 0px;
@@ -277,27 +279,27 @@ border-radius: 10px;
 border-color: beige;
 font: 14px;
 min-width: 10em;</string>
-              </property>
-              <property name="text">
-               <string>Search object</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="delete_2">
-              <property name="font">
-               <font>
-                <pointsize>-1</pointsize>
-                <weight>50</weight>
-                <italic>false</italic>
-                <bold>false</bold>
-               </font>
-              </property>
-              <property name="focusPolicy">
-               <enum>Qt::ClickFocus</enum>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(57, 173, 173);
+                </property>
+                <property name="text">
+                 <string>Search object</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="delete_2">
+                <property name="font">
+                 <font>
+                  <pointsize>-1</pointsize>
+                  <weight>50</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::ClickFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(57, 173, 173);
 padding: 6px;
 border-style: outset;
 border-width: 0px;
@@ -306,16 +308,16 @@ border-color: beige;
 font: 14px;
 min-width: 10em;
 </string>
-              </property>
-              <property name="text">
-               <string>Reset Object</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QCheckBox" name="index">
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(57, 173, 173);
+                </property>
+                <property name="text">
+                 <string>Reset Object</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="index">
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(57, 173, 173);
 padding: 6px;
 border-style: outset;
 border-width: 0px;
@@ -323,45 +325,37 @@ border-radius: 10px;
 border-color: beige;
 font: 14px;
 min-width: 10em;</string>
-              </property>
-              <property name="text">
-               <string>Index in full adress</string>
-              </property>
-             </widget>
+                </property>
+                <property name="text">
+                 <string>Index in full adress</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_9"/>
             </item>
            </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_7"/>
           </item>
          </layout>
         </item>
        </layout>
       </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
      </layout>
-    </item>
-    <item>
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QLabel" name="map">
-      <property name="focusPolicy">
-       <enum>Qt::StrongFocus</enum>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
     </item>
    </layout>
   </widget>

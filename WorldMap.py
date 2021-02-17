@@ -2,9 +2,9 @@ from PyQt5.QtWidgets import *
 
 
 class WorldMap(QLabel):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.parent_form = args[0]
+    def __init__(self, parent_dialog, parent=None):
+        super().__init__(parent)
+        self.parent_form = parent_dialog
 
     def mousePressEvent(self, event):
         x_coord = event.x()
