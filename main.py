@@ -81,7 +81,9 @@ class Example(QMainWindow):
         self.spn = [i * 2 ** self.zoom for i in self.standard_spn]
         url = f"{self.map_api_server}?ll={self.cords[0]},{self.cords[1]}&spn={self.spn[0]},{self.spn[1]}&l={self.style}"
         if self.current_point:
-            url += f"&pt={self.current_point[0]},{self.current_point[1]},pmrdm"
+            url += f"&pt={self.current_point[0][0]},{self.current_point[0][1]},pmrdm"
+            for i in self.current_point[1:]:
+                url += f"~{i[0]},{i[1]},pmrdm"
         response = requests.get(url)
         if not response:
             print(f"Ошибка выполнения запроса:\nHttp статус:{response.status_code}, ({response.reason})")
@@ -135,7 +137,6 @@ class Example(QMainWindow):
         toponym = json_response["response"]["GeoObjectCollection"]["featureMember"][0]["GeoObject"]
         name = toponym['metaDataProperty']['GeocoderMetaData']['Address']['Components'][-1]['name']
         self.Object.setText(name)
-        self.current_point = [degree_x, degree_y]
         self.address.setText(f'Full address: {toponym["metaDataProperty"]["GeocoderMetaData"]["text"]}')
         if self.index.isChecked():
             try:
@@ -145,7 +146,6 @@ class Example(QMainWindow):
                 self.index.setCheckState(False)
                 print('ошибка при вводе параметров', e)
                 QMessageBox.critical(self, "Ошибка ", "У этого адреса нет индекса", QMessageBox.Ok)
-        self.set_image()
 
 
 def except_hook(cls, exception, traceback):
