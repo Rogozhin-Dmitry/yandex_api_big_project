@@ -13,4 +13,4 @@ class WorldMap(QLabel):
         degree_y = -self.parent.spn[1] * 0.6 * degree_for_pixel_y + self.parent.cords[1]
         self.parent.current_point = [[degree_x, degree_y]]
         self.parent.set_image()
-        self.parent.find_object_from_click()
+        self.parent.find_object_from_click(degree_x, degree_y)
